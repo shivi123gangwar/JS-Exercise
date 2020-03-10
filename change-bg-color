@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .color-palettes {
+            display: flex;
+        }
+
+        .color {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #fff
+        }
+
+        .red {
+            background: red;
+        }
+
+        .green {
+            background: green
+        }
+
+        .yellow {
+            background: yellow
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .wrapper .left-panel .feature-list {
+            padding: 0 20px;
+            border: 1px solid #333;
+        }
+
+        .wrapper .right-panel .feature-content {
+            padding: 0 20px;
+            border: 1px solid #333;
+        }
+
+        .active {
+            background: gray;
+        }
+
+        .show {
+            background: wheat;
+        }
+    </style>
+    <div class="color-palettes">
+        <div class="red color"></div>
+        <div class="green color "></div>
+        <div class="yellow color"></div>
+
+        <div class="wrapper">
+            <div class="left-panel">
+                <div class="feature">
+                    <div class="feature-list">
+                        <h3>Lorem Ipsum</h3>
+                    </div>
+                    <div class="feature-list">
+                        <h3>Lorem Ipsum</h3>
+                    </div>
+                    <div class="feature-list">
+                        <h3>Lorem Ipsum</h3>
+                    </div>
+                    <div class="feature-list">
+                        <h3>Lorem Ipsum</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="right-panel">
+                <div class="feature-content">
+                    <p>Lorem ipsum</p>
+                </div>
+                <div class="feature-content">
+                    <p>Lorem ipsum</p>
+                </div>
+                <div class="feature-content">
+                    <p>Lorem ipsum</p>
+                </div>
+                <div class="feature-content">
+                    <p>Lorem ipsum</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var red = document.querySelector(".red")
+        var green = document.querySelector(".green")
+        var yellow = document.querySelector(".yellow")
+        function changeColor(color, bg) {
+            color.addEventListener("click", function () {
+                document.body.style.backgroundColor = bg;
+            })
+
+        }
+        changeColor(red, "red")
+        changeColor(green, "green")
+        changeColor(yellow, "yellow")
+    </script>
+    <script>
+        var featureList = document.querySelectorAll(".feature-list");
+        var featureContent = document.querySelectorAll(".feature-content")
+        for (let i = 0; i < featureList.length; i++) {
+            featureList[i].addEventListener("click", (e) => {
+                var el = document.querySelector('.active');
+                var show = document.querySelector('.show');
+                if (el) {
+                    el.classList.remove("active")
+                }
+                if (show) {
+                    show.classList.remove("show")
+                }
+                featureList[i].classList.toggle("active")
+                featureContent[i].classList.toggle("show")
+            })
+        }
+    </script>
+</body>
+
+</html>
